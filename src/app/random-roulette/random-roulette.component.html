@@ -1,0 +1,24 @@
+<div class="roulette-container">
+  <div
+    class="roulette-wheel"
+    [style.transform]="'rotate(' + rotation + 'deg)'"
+    [class.idle]="isIdle"
+    [class.spinning]="isSpinning"
+    [ngStyle]="{ '--final-rotation': rotation+'deg'}">
+    @if (segments.length >= 2) {
+      @for (segment of segments; track $index) {
+        <div class = "divider" [style.transform]="'rotate(' + ($index * sectionSize) + 'deg)'"></div>
+        <div class="segment"
+             [style.transform]="'rotate(' + (360 - $index * sectionSize - sectionSize/2) + 'deg)'">
+          <span>{{ segment }}</span>
+        </div>
+      }
+    }
+  </div>
+  @if (segments.length < 2) {
+    <div class="error-message">
+      Please add at least 2 elements to start showing them in the roulette
+    </div>
+  }
+  <div class="roulette-selector"></div>
+</div>

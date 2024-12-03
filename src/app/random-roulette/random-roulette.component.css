@@ -1,0 +1,100 @@
+.roulette-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 400px;
+  width: 400px;
+}
+
+.roulette-selector {
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  clip-path: polygon(48% 0, 50% 8%, 52% 0);
+  background: var(--gray-900);
+  transform: rotate(270deg);
+  left: 7%;
+}
+
+.roulette-wheel {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  background: var(--red-to-pink-to-purple-vertical-gradient);
+  box-shadow: black 0 0 8px;
+}
+
+.roulette-wheel.idle {
+  animation: idle-spin 60s linear infinite;
+}
+
+@keyframes idle-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.roulette-wheel.spinning {
+  animation: spin 5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(var(--final-rotation, 360deg));
+  }
+}
+
+.divider {
+  position: absolute;
+  height: 2px;
+  width: 50%;
+  background: #FFF;
+  transform-origin: 100% 50%;
+  top: 50%;
+}
+
+.segment {
+  position: absolute;
+  transform-origin: 100% 50%;
+  width: 50%;
+  height: 50%;
+  align-items: center;
+  align-content: center;
+  top: 25.5%;
+  overflow: hidden;
+}
+
+.segment span {
+  display: inline-block;
+  position: relative;
+  font-size: 12px;
+  text-align: center;
+  align-content: center;
+  width: 80%;
+  height: 14px;
+  left: 5%;
+  color: azure;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.error-message {
+  position: absolute;
+  padding: 5px;
+  border-radius: 10px;
+  background: rgba(30, 30, 30, 0.5);
+  text-align: center;
+  max-width: 60%;
+  color: white;
+}
