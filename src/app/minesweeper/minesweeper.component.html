@@ -1,0 +1,54 @@
+<p>Difficulty selector</p>
+<div class="board">
+  @for (row of board; let i = $index; track i) {
+    <div class="row">
+      @for (cellValue of row; let j = $index; track j) {
+        <button
+          class="cell"
+          [disabled]="isGameOver"
+          [class.covered]="isRevealed[i][j]"
+          (click)="onCellClick(i, j)">
+          @if (isRevealed[i][j]) {
+            @if (cellValue === -1) {
+              💣
+            } @else if (cellValue !== 0){
+              {{ cellValue }}
+            }
+          } @else if (isFlagged[i][j]) {
+            🚩
+          }
+        </button>
+      }
+    </div>
+  }
+  @if (isGameOver) {
+    <div class="absolute-centered-div">
+      <div class="game-over">
+        <p>Game Over</p>
+        <button (click)="fillBoard()">Restart</button>
+      </div>
+    </div>
+  }
+  @if (isComplete) {
+    <div class="absolute-centered-div">
+      <div class="game-over">
+        <p>You won!!!</p>
+        <button (click)="fillBoard()">Play Again</button>
+      </div>
+    </div>
+  }
+</div>
+<div class="click-action-selector">
+  <button
+    class="click-action-button"
+    [class.clicked]="reveal"
+    (click)="onRevealSet()" >
+    💣
+  </button>
+  <button
+    class="click-action-button"
+    [class.clicked]="!reveal"
+    (click)="onFlagSet()" >
+    🚩
+  </button>
+</div>

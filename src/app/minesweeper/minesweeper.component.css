@@ -1,0 +1,67 @@
+.board {
+  height: 400px;
+  aspect-ratio: 1/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.cell.covered{
+  background: var(--gray-400);
+}
+
+.absolute-centered-div {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-over {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: gray;
+  color: #FFFFFF;
+  box-shadow: black 2px 2px 5px;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 10%;
+}
+
+.click-action-selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.click-action-button {
+  width: 30px;
+  height: 30px;
+}
+
+.click-action-button.clicked {
+  background: var(--gray-400);
+  border: none;
+}

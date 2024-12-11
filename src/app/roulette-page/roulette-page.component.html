@@ -1,0 +1,17 @@
+<div class="page-div">
+  <app-random-roulette class="roulette-div" (onSpinFinishedEvent)="showResult($event)"/>
+  <div class="input-div">
+    <textarea
+      [(ngModel)]="text"
+      (input)="onTextAreaChange()"
+      placeholder="Please enter the different options for the roulette here, separate them with a new line."></textarea>
+    <button (click)="onSpinClicked()" [disabled]="this.isRouletteSpinning || this.segments.length < 2">
+      Spin the Wheel
+    </button>
+  </div>
+</div>
+@if (rouletteResult) {
+  <span>
+    {{ this.rouletteResult }}
+  </span>
+}
