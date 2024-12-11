@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5%;
+  padding: 10px;
 }
 
 .row {
@@ -46,7 +46,7 @@
   border-radius: 10%;
 }
 
-.click-action-selector {
+.selector {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -54,6 +54,16 @@
   width: fit-content;
   overflow: hidden;
   border: 1px solid black;
+}
+
+.difficulty-button {
+  width: 100px;
+  height: 30px;
+}
+
+.difficulty-button.clicked {
+  background: var(--gray-400);
+  border: none;
 }
 
 .click-action-button {

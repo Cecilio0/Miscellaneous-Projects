@@ -1,4 +1,16 @@
-<p>Difficulty selector</p>
+<div>
+  <p>Difficulty selector</p>
+  <div class="selector">
+    @for (difficulty of DIFFICULTIES; let i = $index; track i) {
+      <button
+        class="difficulty-button"
+        [class.clicked]="selectedDifficulty === i"
+        (click)="onDifficultySelect(i)">
+        {{ difficulty["name"] }}
+      </button>
+    }
+  </div>
+</div>
 <div class="board">
   @for (row of board; let i = $index; track i) {
     <div class="row">
@@ -38,7 +50,7 @@
     </div>
   }
 </div>
-<div class="click-action-selector">
+<div class="selector">
   <button
     class="click-action-button"
     [class.clicked]="reveal"

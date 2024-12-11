@@ -1,5 +1,26 @@
 import { Component } from '@angular/core';
 
+const DIFFICULTIES = [
+  {
+    name: "Easy",
+    rows: 10,
+    cols: 10,
+    mines: 15
+  },
+  {
+    name: "Medium",
+    rows: 15,
+    cols: 15,
+    mines: 50
+  },
+  {
+    name: "Hard",
+    rows: 20,
+    cols: 20,
+    mines: 100
+  },
+]
+
 @Component({
   selector: 'app-minesweeper',
   imports: [],
@@ -7,6 +28,7 @@ import { Component } from '@angular/core';
   styleUrl: './minesweeper.component.css'
 })
 export class MinesweeperComponent {
+  selectedDifficulty: number = 0;
   rows: number = 15;
   cols: number = 15;
   mines: number = 40;
@@ -16,6 +38,14 @@ export class MinesweeperComponent {
   isFlagged: boolean[][] = [];
   isGameOver: boolean = false;
   isComplete: boolean = false;
+
+  onDifficultySelect(i: number) {
+    this.selectedDifficulty = i;
+    this.rows = DIFFICULTIES[i].rows;
+    this.cols = DIFFICULTIES[i].cols;
+    this.mines = DIFFICULTIES[i].mines;
+    this.fillBoard();
+  }
 
   constructor() {
     this.fillBoard();
@@ -132,4 +162,6 @@ export class MinesweeperComponent {
 
     this.isComplete = isComplete;
   }
+
+  protected readonly DIFFICULTIES = DIFFICULTIES;
 }
