@@ -29,9 +29,9 @@ const DIFFICULTIES = [
 })
 export class MinesweeperComponent {
   selectedDifficulty: number = 0;
-  rows: number = 15;
-  cols: number = 15;
-  mines: number = 40;
+  rows: number = 10;
+  cols: number = 10;
+  mines: number = 15;
   board: number[][] = [];
   reveal: boolean = true;
   isRevealed: boolean[][] = [];
