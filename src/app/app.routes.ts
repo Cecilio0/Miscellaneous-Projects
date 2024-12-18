@@ -3,6 +3,7 @@ import {LandingPageComponent} from './landing-page/landing-page.component';
 import {RoulettePageComponent} from './roulette-page/roulette-page.component';
 import {MinesweeperComponent} from './minesweeper/minesweeper.component';
 import {HangmanComponent} from './hangman/hangman.component';
+import {SpotifyPlayerComponent} from './spotify-player/spotify-player.component';
 
 export const routes: Routes = [
   {
@@ -24,5 +25,10 @@ export const routes: Routes = [
     path: 'hangman',
     component: HangmanComponent,
     title: 'Hangman'
+  },
+  {
+    path: 'spotify-player',
+    component: SpotifyPlayerComponent,
+    title: 'Spotify Player'
   }
 ];
