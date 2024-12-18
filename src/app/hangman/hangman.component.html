@@ -1,0 +1,68 @@
+<p>hangman works!</p>
+<div>
+  <div class="state-div">
+    @for (line of HANGMAN_STATES[currentState].split('\n'); track $index) {
+      <p class="">
+        @for (char of line; track $index) {
+          @if (char === ' ') {
+            &nbsp;
+          } @else {
+            {{ char }}
+          }
+        }
+      </p>
+    }
+    @if (isGuessedCorrectly) {
+      <div class="absolute-centered-div">
+        <div class="message">
+          You win!
+          <button (click)="startGame()">Play Again</button>
+        </div>
+      </div>
+    } @else if (isGameOver) {
+      <div class="absolute-centered-div">
+        <div class="message">
+          You lose! the word was "{{ word }}"
+          <button (click)="startGame()">Try Again</button>
+        </div>
+      </div>
+    }
+  </div>
+  <div class="word-div">
+    @for (letter of word; let i = $index; track i){
+      @if (correctLetters[i]) {
+        {{ letter }}
+      } @else {
+        _
+      }
+    }
+  </div>
+  <div class="word-guess-div">
+    <input
+      [disabled]="isGameOver || isGuessedCorrectly"
+      (keydown.enter)="guessWord()"
+      [(ngModel)]="guessedWord" />
+    <button
+      [disabled]="isGameOver || isGuessedCorrectly"
+      (click)="guessWord()">
+      Guess Word
+    </button>
+  </div>
+  <div class="keyboard-div">
+    @let lines = ALPHABET.split("\n");
+    @for (line of lines; let i = $index; track i) {
+      <div class="letter-div">
+        @for (letter of lines[i].split(' '); let j = $index; track j) {
+          @if (letter !== '') {
+            <button
+              (click)="guessLetter(letter)"
+              [class.clicked]="guessedLetters.includes(letter)"
+              [disabled]="guessedLetters.includes(letter) || isGameOver || isGuessedCorrectly">
+              {{ letter }}
+            </button>
+          }
+        }
+      </div>
+    }
+  </div>
+</div>

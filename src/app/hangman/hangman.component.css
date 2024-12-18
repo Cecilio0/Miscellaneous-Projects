@@ -1,0 +1,98 @@
+.state-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5em;
+  font-family: monospace, monospace;
+  margin: 1.5em;
+}
+
+.state-div p {
+  margin: 0.5em;
+}
+
+.absolute-centered-div {
+  position: absolute;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #C0C0C0;
+  color: #000000;
+  box-shadow: black 2px 2px 5px;
+  padding: 1em;
+}
+
+.word-div {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  font-family: monospace, monospace;
+  margin: 1em;
+  background: #C0C0C0;
+}
+
+.word-guess-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+}
+
+.word-guess-div button {
+  font-size: 1em;
+  text-align: center;
+  margin: 0.5em;
+  padding: 0;
+  width: 8em;
+  height: 1.5em;
+  border: 1px solid black;
+  border-radius: 0.5em;
+  background: #E0E0E0;
+}
+
+.word-guess-div textarea {
+  font-size: 1em;
+  margin: 0.5em;
+  width: 10em;
+  height: 1.5em;
+}
+
+.keyboard-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-div {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  justify-content: space-evenly;
+}
+
+.letter-div button {
+  font-size: 1em;
+  text-align: center;
+  margin: 0.5em;
+  padding: 0;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid black;
+  border-radius: 0.5em;
+  background: #E0E0E0;
+}
+
+.letter-div button.clicked {
+  background: #A0A0A0;
+}
