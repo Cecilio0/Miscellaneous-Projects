@@ -52,7 +52,7 @@
     @let lines = ALPHABET.split("\n");
     @for (line of lines; let i = $index; track i) {
       <div class="letter-div">
-        @for (letter of lines[i].split(' '); let j = $index; track j) {
+        @for (letter of line.split(' '); let j = $index; track j) {
           @if (letter !== '') {
             <button
               (click)="guessLetter(letter)"
